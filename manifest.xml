@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE plugin SYSTEM "manifest.dtd">
+<plugin version="2">
+    <info>
+        <version>1.0</version>
+        <name>google2fa</name>
+        <title>Two-factor authentication</title>
+        <description>Plugin to support two-factor authentication with Google Authenticator</description>
+    </info>
+    <config>
+        <configfile>config.php</configfile>
+    </config>
+    <components>
+        <component>
+            <files>
+                <client>
+                    <clientfile load="release">js/google2fa.js</clientfile>
+                    <clientfile load="debug">js/google2fa-debug.js</clientfile>
+                    <clientfile load="source">js/data/Configuration.js</clientfile>
+                    <clientfile load="source">js/data/ResponseHandler.js</clientfile>
+                    <clientfile load="source">js/Google2FAPlugin.js</clientfile>
+                    <clientfile load="source">js/settings/Category.js</clientfile>
+                    <clientfile load="source">js/settings/GeneralSettingsWidget.js</clientfile>
+                </client>
+                <server>
+                    <serverfile>php/plugin.google2fa.php</serverfile>
+                    <serverfile type="module" module="google2famodule">php/class.google2famodule.php</serverfile>
+                </server>
+                <resources>
+                    <resourcefile load="release">resources/css/google2fa.css</resourcefile>
+                </resources>
+            </files>
+        </component>
+    </components>
+</plugin>
