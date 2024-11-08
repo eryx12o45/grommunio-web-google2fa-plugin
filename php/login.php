@@ -6,7 +6,6 @@ require_once(BASE_PATH . "server/includes/core/class.webappauthentication.php");
 require_once(BASE_PATH . "server/includes/core/class.theming.php");
 require_once("../config.php");
 $webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'WebApp';
-$showVersion = defined('PLUGIN_GOOGLE2FA_LOGINSHOWVERSION') && (PLUGIN_GOOGLE2FA_LOGINSHOWVERSION == 'true');
 
 // Make sure the php session is started
 WebAppSession::getInstance();
@@ -126,8 +125,6 @@ $favicon = getFavicon(Theming::getActiveTheme());
     <div id="content">
         <div class="left">
             <div id="logo"></div>
-            <h2>WebApp <?php if ($showVersion) echo file_get_contents("../../../version"); ?><br/>
-                Google2FA <?php if ($showVersion) echo file_get_contents("../version"); ?></h2>
         </div>
         <div class="right">
             <h1><?= $_SESSION['google2FAEcho']['boxTitle'] ?></h1>

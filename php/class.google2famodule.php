@@ -124,7 +124,6 @@ class Google2FAModule extends Module
             '[DATA]')
         );
         $response['secret'] = base64_encode($secret);
-        $response['application'] = PLUGIN_GOOGLE2FA_APPNAME;
         $response['username'] = $user;
         $this->addActionData("getsecret", $response);
         $GLOBALS["bus"]->addData($this->getResponseData());

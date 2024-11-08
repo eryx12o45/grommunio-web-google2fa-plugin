@@ -93,9 +93,6 @@ class PluginGoogle2FA extends Plugin
                         'google2fa' => array(
                             'enable' => PLUGIN_GOOGLE2FA_ENABLE,
                             'user_disable_allowed' => !PLUGIN_GOOGLE2FA_ALWAYS_ENABLED,
-                            'enable_but_conf' => PLUGIN_GOOGLE2FA_ENBUTCONF,
-                            'enable_but_activ' => PLUGIN_GOOGLE2FA_ENBUTACTIV,
-                            'enable_but_reset' => PLUGIN_GOOGLE2FA_ENBUTTRESET,
                             'secret_key' => '',
                             'activate' => PLUGIN_GOOGLE2FA_ACTIVATE
                         )
