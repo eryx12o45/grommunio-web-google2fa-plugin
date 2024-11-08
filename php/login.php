@@ -117,6 +117,33 @@ $favicon = getFavicon(Theming::getActiveTheme());
 
         window.onload = onLoad;
     </script>
+    <style>
+        .cancelbutton {
+            background: firebrick;
+            border:1px solid transparent;
+            border-radius:25px;
+            box-shadow:0 1px 1px 0 rgba(0,0,0,.35);
+            color:#fff;
+            height:28px;
+            line-height:1.5;
+            margin:12px 0 0;
+            padding:0 9px;
+            width:100%
+        }
+
+        .cancelbutton:hover {
+            background-color: darkred;
+            cursor:pointer
+        }
+
+        .cancelbutton:active {
+            background-color: darkred;
+        }
+
+        .cancelbutton:focus {
+            box-shadow:inset 0 0 0 1px #fff
+        }
+    </style>
 </head>
 
 <body class="login">
@@ -127,16 +154,16 @@ $favicon = getFavicon(Theming::getActiveTheme());
             <div id="logo"></div>
         </div>
         <div class="right">
-            <h1><?= $_SESSION['google2FAEcho']['boxTitle'] ?></h1>
             <form action="logon.php" method="post">
-                <input type="text" name="token" id="token" class="inputelement">
+                <input type="text" name="token" id="token" class="inputelement" placeholder="<?= $_SESSION['google2FAEcho']['txtCodePlaceholder']; ?>">
                 <?php if (isset($error) && $error) { ?>
                     <div id="error"><?php echo $_SESSION['google2FAEcho']['msgInvalidCode']; ?></div>
                 <?php } ?>
-                <a href="../../../index.php?logout"><?= $_SESSION['google2FAEcho']['butCancel']; ?></a>&nbsp;
                 <input id="submitbutton" class="button" type="submit"
                        value="<?= $_SESSION['google2FAEcho']['butOk']; ?>"/>
             </form>
+            <br>
+            <a href="../../../index.php?logout"><button class="cancelbutton"><?= $_SESSION['google2FAEcho']['butCancel']; ?></button></a><br>
         </div>
     </div>
 </div>

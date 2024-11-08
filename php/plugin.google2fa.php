@@ -61,7 +61,6 @@ class PluginGoogle2FA extends Plugin
                     // Save data in session for token authentication with login.php and logon.php
                     $encryptionStore = EncryptionStore::getInstance();
                     $encryptionStore->add('google2FASecret', Google2FAData::getSecret());
-                    $_SESSION['google2FAEcho']['boxTitle'] = dgettext('plugin_google2fa', 'Please enter code');
                     $_SESSION['google2FAEcho']['txtCodePlaceholder'] = dgettext('plugin_google2fa', 'Code');
                     $_SESSION['google2FAEcho']['msgInvalidCode'] = dgettext('plugin_google2fa', 'Invalid code. Please check code.');
                     $_SESSION['google2FAEcho']['butOk'] = dgettext('plugin_google2fa', 'Ok');
