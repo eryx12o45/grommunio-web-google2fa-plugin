@@ -4,7 +4,15 @@ This plugin will integrate two-factor authorization with an external OTP provide
 
 # Dependencies
 
-This plugin requires no external dependencies
+* NodeJS >=20
+
+# How to install plugin
+
+* Check out the repository locally
+* Execute ```make DESTDIR=./google2fa```
+* Copy folder ```google2fa``` to your Grommunio Webmail's plugin folder ``[default: /usr/share/grommunio-web/plugins]``
+* As default the plugin is enabled for each user, but needs to be activated seperately in the plugin configuration
+* Before setting the plugin to ``activated`` for a user, make sure to configure the Authenticator app.
 
 # Configuration
 
