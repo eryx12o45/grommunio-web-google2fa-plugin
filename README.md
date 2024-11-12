@@ -4,7 +4,9 @@ This plugin will integrate two-factor authorization with an external OTP provide
 
 # Dependencies
 
-* NodeJS >=20
+* make (to build plugin)
+* NodeJS >=18
+* * PHP >=8.2
 
 # How to install plugin
 

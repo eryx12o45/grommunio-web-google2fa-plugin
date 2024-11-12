@@ -26,7 +26,6 @@ Zarafa.plugins.google2fa.settings.GeneralSettingsWidget = Ext.extend(Zarafa.sett
                 text: dgettext("plugin_google2fa", "Configuration"),
                 handler: this.openConfigurationDialog,
                 scope: this,
-                disabled: !container.getSettingsModel().get("zarafa/v1/plugins/google2fa/enable_but_conf"),
                 width: 250
             }, {
                 xtype: "displayfield",
@@ -48,7 +47,6 @@ Zarafa.plugins.google2fa.settings.GeneralSettingsWidget = Ext.extend(Zarafa.sett
                 text: dgettext("plugin_google2fa", "Activation/Deactivation"),
                 handler: this.activate,
                 scope: this,
-                disabled: !container.getSettingsModel().get("zarafa/v1/plugins/google2fa/enable_but_activ"),
                 width: 250
             }, {
                 xtype: "displayfield",
@@ -61,7 +59,6 @@ Zarafa.plugins.google2fa.settings.GeneralSettingsWidget = Ext.extend(Zarafa.sett
                 text: dgettext("plugin_google2fa", "Reset"),
                 handler: this.openResetConfigurationDialog,
                 scope: this,
-                disabled: !container.getSettingsModel().get("zarafa/v1/plugins/google2fa/enable_but_reset"),
                 width: 250
             }]
         });
