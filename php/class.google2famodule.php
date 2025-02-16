@@ -11,6 +11,9 @@ use ParagonIE\ConstantTime\Base32;
  */
 class Google2FAModule extends Module
 {
+    /**
+     * @var TOTP $otp
+     */
     var $otp;
 
     /**

@@ -11,6 +11,15 @@ $webappTitle = defined('WEBAPP_TITLE') && WEBAPP_TITLE ? WEBAPP_TITLE : 'WebApp'
 WebAppSession::getInstance();
 
 $error = isset($_SESSION['google2FALoggedOn']) && !$_SESSION['google2FALoggedOn'];
+$encryptionStore = EncryptionStore::getInstance();
+$user = $encryptionStore->get('username');
+
+$cookieName = "grommunio-web-google2fa-remember";
+$cookieValue = $user; // @todo: generate random value
+
+if(isset($_COOKIE[$cookieName])) {
+    header('Location: logon.php', true, 303);
+}
 
 /*
  * Get the favicon either from theme or use the default.
@@ -143,6 +152,52 @@ $favicon = getFavicon(Theming::getActiveTheme());
         .cancelbutton:focus {
             box-shadow:inset 0 0 0 1px #fff
         }
+
+        .login-font {
+            font-family: Roboto,sans-serif;
+        }
+
+        .x-form-item {
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .x-form-check-wrap {
+            height: auto;
+            line-height: 18px;
+        }
+
+        .x-form-check-wrap input {
+            vertical-align: middle;
+        }
+
+        .x-form-field {
+            margin: 0;
+        }
+
+        .x-form-item .x-form-cb-label {
+            margin-left: 3px;
+            top: 0;
+        }
+
+        .x-form-cb-label {
+            margin-left: 4px;
+            position: relative;
+            top: 2px;
+        }
+
+        .x-unselectable, .x-unselectable * {
+            cursor: default;
+            user-select: none;
+            -o-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: -moz-none;
+            -webkit-user-select: none;
+        }
+
+        .x-form-checkbox {
+            vertical-align:middle;
+        }
     </style>
 </head>
 
@@ -159,11 +214,17 @@ $favicon = getFavicon(Theming::getActiveTheme());
                 <?php if (isset($error) && $error) { ?>
                     <div id="error"><?php echo $_SESSION['google2FAEcho']['msgInvalidCode']; ?></div>
                 <?php } ?>
+                <div class="x-form-check-wrap x-form-item">
+                    <label for="remember" class="x-form-cb-label x-unselectable login-font">
+                        <input type="checkbox" name="remember" id="remember" class="x-form-checkbox x-form-field">
+                        <?= $_SESSION['google2FAEcho']['rememberMe']; ?>
+                    </label>
+                </div>
                 <input id="submitbutton" class="button" type="submit"
                        value="<?= $_SESSION['google2FAEcho']['butOk']; ?>"/>
-            </form>
             <br>
             <a href="../../../index.php?logout"><button class="cancelbutton"><?= $_SESSION['google2FAEcho']['butCancel']; ?></button></a><br>
+            </form>
         </div>
     </div>
 </div>

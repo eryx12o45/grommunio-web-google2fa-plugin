@@ -62,6 +62,7 @@ class PluginGoogle2FA extends Plugin
                     $encryptionStore = EncryptionStore::getInstance();
                     $encryptionStore->add('google2FASecret', Google2FAData::getSecret());
                     $_SESSION['google2FAEcho']['txtCodePlaceholder'] = dgettext('plugin_google2fa', 'Code');
+                    $_SESSION['google2FAEcho']['rememberMe'] = dgettext('plugin_google2fa', 'Remember me for 30 days');
                     $_SESSION['google2FAEcho']['msgInvalidCode'] = dgettext('plugin_google2fa', 'Invalid code. Please check code.');
                     $_SESSION['google2FAEcho']['butOk'] = dgettext('plugin_google2fa', 'Ok');
                     $_SESSION['google2FAEcho']['butCancel'] = dgettext('plugin_google2fa', 'Cancel');
