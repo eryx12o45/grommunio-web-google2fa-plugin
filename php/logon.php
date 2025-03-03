@@ -23,7 +23,7 @@ $user = $encryptionStore->get('username');
 $verification = false;
 
 $cookieValue = $user; // @todo: generate random value
-$cookieName = $user . "-grommunio-web-google2fa-remember";
+$cookieName = str_replace(['@', '.'], '-', $user) . "-grommunio-web-google2fa-remember";
 
 if(!isset($_COOKIE[$cookieName])) {
     $otp = TOTP::createFromSecret($secret);

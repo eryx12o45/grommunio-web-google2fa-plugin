@@ -15,7 +15,7 @@ $encryptionStore = EncryptionStore::getInstance();
 $user = $encryptionStore->get('username');
 
 $cookieValue = $user; // @todo: generate random value
-$cookieName = $user . "-grommunio-web-google2fa-remember";
+$cookieName = str_replace(['@', '.'], '-', $user) . "-grommunio-web-google2fa-remember";
 
 if(isset($_COOKIE[$cookieName])) {
     header('Location: logon.php', true, 303);
