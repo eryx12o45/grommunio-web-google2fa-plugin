@@ -22,8 +22,8 @@ $secret = $encryptionStore->get('google2FASecret');
 $user = $encryptionStore->get('username');
 $verification = false;
 
-$cookieName = "grommunio-web-google2fa-remember";
 $cookieValue = $user; // @todo: generate random value
+$cookieName = $user . "-grommunio-web-google2fa-remember";
 
 if(!isset($_COOKIE[$cookieName])) {
     $otp = TOTP::createFromSecret($secret);

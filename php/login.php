@@ -14,8 +14,8 @@ $error = isset($_SESSION['google2FALoggedOn']) && !$_SESSION['google2FALoggedOn'
 $encryptionStore = EncryptionStore::getInstance();
 $user = $encryptionStore->get('username');
 
-$cookieName = "grommunio-web-google2fa-remember";
 $cookieValue = $user; // @todo: generate random value
+$cookieName = $user . "-grommunio-web-google2fa-remember";
 
 if(isset($_COOKIE[$cookieName])) {
     header('Location: logon.php', true, 303);
@@ -223,8 +223,8 @@ $favicon = getFavicon(Theming::getActiveTheme());
                 <input id="submitbutton" class="button" type="submit"
                        value="<?= $_SESSION['google2FAEcho']['butOk']; ?>"/>
             <br>
-            <a href="../../../index.php?logout"><button class="cancelbutton"><?= $_SESSION['google2FAEcho']['butCancel']; ?></button></a><br>
             </form>
+            <a href="../../../index.php?logout"><button class="cancelbutton"><?= $_SESSION['google2FAEcho']['butCancel']; ?></button></a><br>
         </div>
     </div>
 </div>
