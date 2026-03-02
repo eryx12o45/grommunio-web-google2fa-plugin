@@ -11,27 +11,27 @@ class ComposerStaticInit7e01b166e8368bc63de473c7ff18adec
     );
 
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'Psr\\Clock\\' => 10,
             'ParagonIE\\ConstantTime\\' => 23,
         ),
-        'O' => 
+        'O' =>
         array (
             'OTPHP\\' => 6,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Psr\\Clock\\' => 
+        'Psr\\Clock\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
-        'ParagonIE\\ConstantTime\\' => 
+        'ParagonIE\\ConstantTime\\' =>
         array (
             0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
         ),
-        'OTPHP\\' => 
+        'OTPHP\\' =>
         array (
             0 => __DIR__ . '/..' . '/spomky-labs/otphp/src',
         ),
